@@ -1,5 +1,7 @@
+#!/usr/bin/python
 import os
 import errno
+import sys, getopt
 
 #
 # Create base directores
@@ -18,5 +20,24 @@ def mkdir_p(path):
         else:
             raise
 
-for path in pathList:
-    mkdir_p(path)
+# Take path base from command line
+def main(argv):
+    basepath = ''
+    try:
+        opts, args = getopt.getopt(argv,"hb:",["basepath="])
+    except getopt.GetoptError:
+        print('install.py -b <basepath>')
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print('install.py -b <basepath>')
+            sys.exit()
+        elif opt in ("-b", "--basepath"):
+            basepath = arg
+
+    # Create paths including the passed on subpath
+    for path in pathList:
+        mkdir_p(basepath + path)
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
