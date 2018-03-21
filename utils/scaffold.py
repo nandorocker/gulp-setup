@@ -32,7 +32,7 @@ def mkdir_p(path):
 
 # Take path base from command line
 def main(argv):
-    basepath = ''
+    basepath = '../'
     try:
         opts, args = getopt.getopt(argv,"hb:",["basepath="])
     except getopt.GetoptError:
