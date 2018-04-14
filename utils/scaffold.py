@@ -10,12 +10,11 @@ import sys, getopt
 # Directory array
 pathList = [
     'app',
-    'app/assets',
     'app/assets/fonts',
     'app/assets/images',
+    'app/_includes',
+    'app/_layouts',
     'app/pages',
-    'app/pages/_includes',
-    'app/pages/_layouts',
     'app/scripts',
     'app/styles'
 ]
